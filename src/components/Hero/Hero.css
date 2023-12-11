@@ -1,0 +1,14 @@
+.gradient {
+    background: linear-gradient(0deg, rgba(20,10,27,1) 4%, rgba(18,5,5,1) 15%, rgba(28,93,88,1) 100%, rgba(16,134,121,1) 100%);
+}
+.scroll-bar::-webkit-scrollbar{
+    width:12px;
+    height: 12px;
+    display: none;
+}
+.scroll-bar::-webkit-scrollbar-thumb{
+    background-color: #bbbb;
+}
+.scroll-bar::-webkit-scrollbar-track{
+    display: none;
+}
