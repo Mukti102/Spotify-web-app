@@ -1,13 +1,15 @@
 import { create } from "zustand";
 import axios from "axios";
+import { useRef } from "react";
 const useAppStore = create((set) => ({
-  text: "test",
   token: window.location.hash.substring(1).split("&")[0].split("=")[1],
   playlists: [],
   playlist: [],
   loading: false,
-  cardTarget: [],
-  tracks: [],
+  cardTarget: null,
+  playing: false,
+  tracks: null,
+  aboutArtist: null,
   getPlaylist: (url) => {
     return new Promise((resolve, reject) => {
       axios
@@ -37,6 +39,7 @@ const useAppStore = create((set) => ({
         })
         .then((res) => {
           const selectedPlylist = {
+            data: res.data.description,
             owner: res.data.owner.display_name,
             id: res.data.id,
             name: res.data.name,
@@ -47,7 +50,6 @@ const useAppStore = create((set) => ({
           };
           PlaylistItem = selectedPlylist;
           set({ playlist: PlaylistItem });
-          console.log(useAppStore.getState().playlist);
           resolve(true);
           // set({ playlist: selectedPlylist });
         })
@@ -66,6 +68,7 @@ const useAppStore = create((set) => ({
             id: item.track.id,
             name: item.track.name,
             artists: item.track.artists.map((artist) => artist.name),
+            artistId: item.track.artists.map((artist) => artist.id),
             image: item.track.album.images[1],
             album: item.track.album.name,
             duration: item.track.duration_ms,
@@ -73,7 +76,6 @@ const useAppStore = create((set) => ({
             preview_Url: item.track.preview_url,
           }));
           set({ track: trackItem });
-          console.log(useAppStore.getState().track);
           resolve(true);
         })
         .catch((err) => {
@@ -86,7 +88,40 @@ const useAppStore = create((set) => ({
     set((state) => ({ loading: (state.loading = boolean) }));
   },
   getCardTarget: (item) => {
-    set({ cardTarget: item });
+    if (item.preview_Url == null) {
+      alert("lagu tidak ditemukan ");
+      return;
+    } else {
+      set({ cardTarget: item });
+    }
+    console.log(item);
+  },
+  getArtist: (id) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(`https://api.spotify.com/v1/artists/${id}`, {
+          headers: {
+            Authorization: "Bearer " + useAppStore.getState().token,
+          },
+        })
+        .then((res) => {
+          const artistDetail = {
+            followers: res.data.followers.total,
+            genres: res.data.genres,
+            images: res.data.images,
+            name: res.data.name,
+            popularity: res.data.popularity,
+          };
+          set({ aboutArtist: artistDetail });
+          resolve(true);
+        })
+        .catch((err) => {
+          reject("fetch get artist", err);
+        });
+    });
+  },
+  setPlaying: (condition) => {
+    set({ playing: condition });
   },
 }));
 

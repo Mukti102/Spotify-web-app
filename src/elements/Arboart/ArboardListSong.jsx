@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import PlayButton from "../Play/PlayButton";
 import HeaderListSong from "../Lists/ListArboardSong";
 import CardPlaylist from "../../Atoms/Card/CardPlaylist";
-import CardLoad from "../../Atoms/Card/CardLoad";
+import CardLoad from "../../Atoms/Card/skeleton/CardLoad";
 import useAppStore from "../../zustand/StoreApp";
 function ArboardListSong({ Loading }) {
   const playlistsItem = useAppStore((state) => state.track);

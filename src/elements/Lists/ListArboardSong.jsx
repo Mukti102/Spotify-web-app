@@ -11,7 +11,7 @@ function HeaderListSong() {
             <div className=" overflow-hidden rounded-md">Title</div>
           </div>
         </div>
-        <div className="text-[13px]  w-1/3">Album</div>
+        <div className="text-[13px]  text-start  w-1/3">Album</div>
         <div className="w-10 flex justify-start text-lg">
           <MdOutlineWatchLater />
         </div>

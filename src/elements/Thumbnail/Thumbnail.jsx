@@ -1,10 +1,19 @@
 import React from "react";
 import useAppStore from "../../zustand/StoreApp";
+import MilisecondToMinute from "../../Functions/MilisecondToMinute";
+import "../../components/Sidebar/Sidebar.css";
+import HandleName from "../../Functions/HandleName";
 function Thumbnail() {
+  const tracks = useAppStore((state) => state.track);
   const playlist = useAppStore((state) => state.playlist);
+  const cardTarget = useAppStore((state) => state.cardTarget);
+  const entireMinutes = tracks?.reduce(
+    (acumulator, currentvalue) => acumulator + currentvalue.duration,
+    0
+  );
   return (
     <div className="w-full h-max  items-center px-4  flex gap-1 mt-10">
-      <div className="w-72 h-[210px] rounded-[4px] shadow-lg  overflow-hidden">
+      <div className="w-72 h-[210px] rounded-[4px] shadow-lg   overflow-hidden">
         <img
           src={
             playlist
@@ -17,14 +26,25 @@ function Thumbnail() {
       </div>
       <div className="flex flex-col pb-0  justify-center w-full h-[200px]">
         <div className="flex gap-3 justify-end  h-full px-3 flex-col">
-          <h3 className="text-[13px] font-light text-[#ddd]">
+          <h3 className="text-[13px] font-light text-start text-[#ddd]">
             Public Playlist
           </h3>
-          <h1 className="text-7xl text-white font-bold">{playlist.name}</h1>
-          <h2 className="text-white text-sm font-medium">
+          <h1
+            className={`${
+              cardTarget ? "text-5xl" : "text-7xl"
+            } text-white font-bold text-start`}
+          >
+            {playlist.name}
+          </h1>
+          <p className="text-[#bbb] font-normal text-[12px] text-start w-[75%]">
+            {playlist.description}
+          </p>
+          <h2 className="text-start text-white text-sm font-medium">
             ABDUL MUKTI •{" "}
             <span className="text-sm">
-              {/* {playlist ? playlist.tracks.length : "0"} songs, 20min, 6sec */}
+              {tracks == null ? "0" : tracks?.length} songs,{" "}
+              {MilisecondToMinute(entireMinutes).split(":")[0]} min,{" "}
+              {MilisecondToMinute(entireMinutes).split(":")[1].substring(1)} sec
             </span>
           </h2>
         </div>

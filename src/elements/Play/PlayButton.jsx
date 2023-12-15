@@ -25,7 +25,7 @@ function PlayButton() {
               <input
                 type="text"
                 placeholder="Search Your playlist...."
-                className="bg-transparent outline-none w-full h-full text-[12px]"
+                className="bg-transparent outline-none placeholder:font-normal font-normal w-full h-full text-[12px]"
               />
             </div>
           ) : (
@@ -33,7 +33,7 @@ function PlayButton() {
           )}
         </div>
         <div className="flex items-center gap-1 cursor-pointer">
-          <h1 className="text-sm">Title</h1>
+          <h1 className="text-sm font-medium">Title</h1>
           <RiListCheck className="text-xl" />
         </div>
       </div>

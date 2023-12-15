@@ -11,8 +11,8 @@ function Hero() {
   const playlists = useAppStore((state) => state.playlists);
   const getPlaylistsItem = useAppStore((state) => state.getItemPlaylist);
   const playlist = useAppStore((state) => state.playlist);
+  const cardTarget = useAppStore((state) => state.cardTarget);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(isLoading);
   const id = params.id;
   useEffect(() => {
     const fetchData = async () => {
@@ -35,7 +35,11 @@ function Hero() {
     fetchData();
   }, [params]);
   return (
-    <div className=" flex-1  h-full rounded-xl gradient overflow-hidden pb-3 pt-0">
+    <div
+      className={`flex-auto h-full rounded-lg gradient overflow-hidden pb-3 pt-0 ${
+        cardTarget ? "w-[60%]" : ""
+      }`}
+    >
       <div className="w-full h-full overflow-y-auto scroll-bar">
         <Icon />
         <Thumbnail />
