@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Hero.css";
-import { useParams } from "react-router";
+import { Outlet, useParams } from "react-router";
 import useAppStore from "../../zustand/StoreApp";
-import Thumbnail from "../../elements/Thumbnail/Thumbnail";
-import Icon from "../../Atoms/icon/Icon";
-import ArboardListSong from "../../elements/Arboart/ArboardListSong";
 
 function Hero() {
   const params = useParams();
@@ -33,18 +30,14 @@ function Hero() {
       }
     };
     fetchData();
-  }, [params]);
+  }, [id]);
   return (
     <div
-      className={`flex-auto h-full rounded-lg gradient overflow-hidden pb-3 pt-0 ${
-        cardTarget ? "w-[60%]" : ""
-      }`}
+      className={`flex-auto h-full rounded-lg  ${
+        id ? "gradient" : "bg-[#111]"
+      } overflow-hidden pt-1 pb-3  ${cardTarget ? "w-[60%]" : "w-[60%]"}`}
     >
-      <div className="w-full h-full overflow-y-auto scroll-bar">
-        <Icon />
-        <Thumbnail />
-        <ArboardListSong Loading={isLoading} />
-      </div>
+      <Outlet />
     </div>
   );
 }

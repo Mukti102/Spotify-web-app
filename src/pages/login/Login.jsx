@@ -26,7 +26,8 @@ function Login() {
   const token = useAppStore((state) => state.token);
   useEffect(() => {
     if (token) {
-      navigate(`playlist/7i5tGT8NEDeBZcMXd20YA4/`);
+      // navigate(`spotify/playlist/7i5tGT8NEDeBZcMXd20YA4`);
+      navigate(`spotify/playlist`);
     } else {
       navigate("/");
     }

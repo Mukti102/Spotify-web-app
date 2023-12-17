@@ -49,13 +49,7 @@ function CardPlaylist({ item, index }) {
       if (cardActive && !playing) {
         return <AudioAnimation />;
       } else {
-        return (
-          // <IoPlaySharp
-          //   className="text-white text-lg cursor-pointer"
-          //   onClick={() => handleClick(item)}
-          // />
-          index + 1
-        );
+        return index + 1;
       }
     }
   };

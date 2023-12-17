@@ -1,5 +1,4 @@
 import React from "react";
-
 function Player({ cardTarget }) {
   return (
     <div className="w-[30%] items-center pl-2 flex gap-2">

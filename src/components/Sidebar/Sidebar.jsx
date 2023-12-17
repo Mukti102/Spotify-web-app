@@ -42,13 +42,16 @@ function Sidebar() {
     <div
       className={`${
         cardTarget ? " flex-auto" : "flex-initial"
-      } w-[26%] pl-2 pr-1  flex-col`}
+      } w-[25%] pl-2 pr-1  flex-col`}
     >
       <div className="h-[15%] py-3 px-3 mb-2 rounded-lg w-full bg-[#111]">
-        <div className="text-white gap-4 items-center w-full flex">
+        <NavLink
+          to={"playlist/search"}
+          className="text-white gap-4 items-center w-full flex"
+        >
           <LuSearch className="text-2xl text-[#ccc]" />
           <h1 className="text-[15px] text-[#ccc] font-semibold">Search</h1>
-        </div>
+        </NavLink>
       </div>
       <div className={`pl-2 pr-1 py-4 h-[83%] text-white bg-[#111] rounded-lg`}>
         <div className="w-full shadow-custom z-50 h-max  pb-2">
@@ -91,11 +94,7 @@ function Sidebar() {
             ) : (
               playlists?.map((item, index) => {
                 return (
-                  <NavLink
-                    className="-z-10"
-                    to={`/playlist/${item.id}`}
-                    key={index}
-                  >
+                  <NavLink to={`playlist/${item.id}`} key={index}>
                     <div className="w-full h-[60px] mt-2 flex items-center gap-2 rounded-lg cursor-pointer px-1 hover:bg-slate-100 hover:bg-opacity-5">
                       <div className="w-[50px] h-[50px]  bg-black rounded-md overflow-hidden ">
                         <img

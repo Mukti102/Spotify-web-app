@@ -12,7 +12,7 @@ function Thumbnail() {
     0
   );
   return (
-    <div className="w-full h-max  items-center px-4  flex gap-1 mt-10">
+    <div className="w-full h-max  items-center px-4  flex gap-1 mt-3">
       <div className="w-72 h-[210px] rounded-[4px] shadow-lg   overflow-hidden">
         <img
           src={

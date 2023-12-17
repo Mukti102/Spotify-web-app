@@ -15,13 +15,13 @@ function SongDetail() {
   const getArtist = useAppStore((state) => state.getArtist);
   const artistDetail = useAppStore((state) => state.aboutArtist);
   const [hidden, setHidden] = useState(false);
-  console.log("playlists", artistDetail);
   useEffect(() => {
     getArtist(tracks?.artistId);
   }, [tracks]);
   const hide = () => {
     setHidden(!hidden);
   };
+  console.log(tracks);
   return (
     <div
       className={`flex-auto w-[30%] h-full ${hidden ? "hidden" : ""}`}

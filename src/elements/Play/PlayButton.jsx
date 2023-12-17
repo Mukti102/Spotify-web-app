@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { IoPlaySharp } from "react-icons/io5";
 import { LuSearch } from "react-icons/lu";
 import { RiListCheck } from "react-icons/ri";
+import PlayIcon from "../../Atoms/icon/PlayIcon";
 function PlayButton() {
   const [isSearch, setIsSearch] = useState(false);
   return (
     <div className="flex justify-between items-center">
-      <div className="w-[57px] h-[57px] bg-green-500 flex justify-center items-center rounded-full cursor-pointer">
-        <IoPlaySharp className="text-2xl text-black" />
-      </div>
+      <PlayIcon width={"50px"} height={"50px"} fontSize={"2xl"} />
       <div className=" flex gap-2 items-center ">
         <div
           className={`target cursor-pointer ${
