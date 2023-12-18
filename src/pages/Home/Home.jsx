@@ -13,7 +13,6 @@ function Home() {
     <div className="h-screen">
       <div className="flex h-[85%] pt-3 px-1 gap-2">
         <Sidebar />
-        {/* <Hero /> */}
         <Outlet />
         {cardTarget !== null && <SongDetail />}
       </div>

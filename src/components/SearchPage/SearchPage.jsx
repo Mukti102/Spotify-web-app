@@ -7,6 +7,7 @@ import Icon from "../../Atoms/icon/Icon";
 import "../SongDetail/SongDetail.css";
 import SearcCardLoad from "../../Atoms/Card/skeleton/SearcCardLoad";
 import { useNavigate } from "react-router";
+import Profile from "../../Atoms/icon/Profile";
 function SearchPage() {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
@@ -38,10 +39,6 @@ function SearchPage() {
     fetchSearch();
     setInputValue("");
   };
-  const LogOut = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("spotify-storage");
-  };
   return (
     <div
       className={` scroll-barr w-full overflow-y-auto h-full py-3 px-2 relative overflow-hidden ${
@@ -51,7 +48,7 @@ function SearchPage() {
       onMouseLeave={() => setMouseEnter(false)}
     >
       <div
-        className={`flex-auto w-1/2 items-center flex gap-2 z-10 bg-[#111] top-4 h-max py-4 px-2 shadow-lg fixed justify-between`}
+        className={`flex-auto w-1/2  items-center flex gap-2 z-10 bg-transparent backdrop-blur-md top-4 h-max py-4 px-2 shadow-lg fixed justify-between`}
       >
         <div className="w-1/2  flex gap-0 items-center">
           <Icon />
@@ -70,12 +67,7 @@ function SearchPage() {
             </form>
           </div>
         </div>
-        <button
-          className="btn-sm bg-red-600 text-white rounded-sm font-medium"
-          onClick={LogOut}
-        >
-          Log Out
-        </button>
+        <Profile />
       </div>
       <div className="mt-16 w-full h-full text-start">
         <h1 className="text-xl my-3 text-white font-semibold">

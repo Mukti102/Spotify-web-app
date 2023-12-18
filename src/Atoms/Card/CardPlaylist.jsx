@@ -98,7 +98,7 @@ function CardPlaylist({ item, index }) {
           </div>
         </div>
         <div className="text-[13px] text-[#bbb] font-medium group-hover:text-white text-start w-1/3">
-          {item.album}
+          {HandleName(item.album)}
         </div>
         <div className="w-10 flex justify-start">
           {MilisecondToMinute(item.duration)}

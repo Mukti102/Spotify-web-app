@@ -147,7 +147,6 @@ const useAppStore = create(
                 uri: item.uri,
               }));
               set({ searchResult: selectedSearch });
-              console.log(selectedSearch);
               resolve(true);
             })
             .catch((err) => {

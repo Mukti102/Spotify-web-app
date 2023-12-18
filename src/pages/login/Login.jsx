@@ -33,11 +33,22 @@ function Login() {
     }
   }, [token]);
   return (
-    <>
-      <button onClick={handleClick} className="mx-auto text-green-400">
-        Login
-      </button>
-    </>
+    <div className="w-full h-screen flex justify-center items-center bg-[#222]">
+      <div className="w-1/2 flex justify-center flex-col items-center ">
+        <div className="w-[60%] overflow-hidden h-max">
+          <img
+            src="https://logosmarcas.net/wp-content/uploads/2020/09/Spotify-Logo.png"
+            alt=""
+          />
+        </div>
+        <button
+          onClick={handleClick}
+          className="mx-auto w-56 translate-x-7 -translate-y-4 text-white bg-green-500 text-xl px-0 py-2 font-medium rounded-full hover:bg-green-400"
+        >
+          Login
+        </button>
+      </div>
+    </div>
   );
 }
 
