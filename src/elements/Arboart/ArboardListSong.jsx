@@ -10,7 +10,6 @@ function ArboardListSong({ Loading }) {
   const inputChange = (e) => {
     setInputSearch(e.target.value);
   };
-  console.log(playlistsItem);
   const playlists = playlistsItem?.filter((item) =>
     item.name.toLowerCase().includes(inputSearch.toLowerCase())
   );

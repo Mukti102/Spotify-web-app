@@ -24,7 +24,7 @@ function Beranda() {
           {playlists?.map((item, index) => {
             return (
               <NavLink
-                // to={`/spotify/playlist/${item.id}`}
+                to={`/spotify/playlist/${item.id}`}
                 key={index}
                 className="group  w-[48%] h-14 flex items-center bg-[#333] rounded-md overflow-hidden gap-2 relative hover:bg-[#555]"
               >
