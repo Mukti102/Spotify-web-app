@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import Hero from "./components/Hero/Hero";
 import PlaylistPage from "./components/PlaylistPage/PlaylistPage";
 import SearchPage from "./components/SearchPage/SearchPage";
+import Beranda from "./components/Beranda/Beranda";
 function App() {
   return (
     <BrowserRouter>
@@ -13,6 +14,7 @@ function App() {
           <Route path="playlist" element={<Hero />}>
             <Route path=":id" element={<PlaylistPage />} />
             <Route path="search" element={<SearchPage />} />
+            <Route path="Home" element={<Beranda />} />
           </Route>
         </Route>
       </Routes>

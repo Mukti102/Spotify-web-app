@@ -45,19 +45,19 @@ function Sidebar() {
         cardTarget ? " flex-auto" : "flex-initial"
       } w-[25%] pl-2 pr-1  flex-col`}
     >
-      <div className="h-[18%] flex flex-col gap-4 justify-center py-0 px-3 mb-2 rounded-lg w-full bg-[#111]">
+      <div className="h-[18%]  flex flex-col gap-2 justify-center py-0 px-3 mb-2 rounded-lg w-full bg-[#111]">
         <NavLink
-          to={"playlist/search"}
-          className="text-white gap-4 items-center w-full flex"
+          to={"playlist/Home"}
+          className="text-white gap-4  items-center py-1 px-1 rounded-sm  w-full flex"
         >
           <GoHome className="text-2xl text-[#ccc]" />
           <h1 className="text-[15px] text-[#ccc] font-semibold">Home</h1>
         </NavLink>
         <NavLink
           to={"playlist/search"}
-          className="text-white gap-4 items-center w-full flex"
+          className="text-base gap-4 items-center  py-1 px-1 rounded-sm w-full flex"
         >
-          <LuSearch className="text-2xl text-[#ccc]" />
+          <LuSearch className="text-2xl text-[#ccc] " />
           <h1 className="text-[15px] text-[#ccc] bg-none font-semibold">
             Search
           </h1>

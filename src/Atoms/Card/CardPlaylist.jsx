@@ -65,7 +65,7 @@ function CardPlaylist({ item, index }) {
       >
         <div className="flex items-center gap-3 w-1/3">
           <div
-            className={`text-[15px] font-medium w-4 h-4 text-center   relative ${
+            className={`text-[15px] font-medium w-6 h-6 text-center     relative ${
               cardActive ? "text-green-500" : "text-base"
             }`}
           >

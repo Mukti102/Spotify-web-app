@@ -41,16 +41,16 @@ function SearchPage() {
   };
   return (
     <div
-      className={` scroll-barr w-full overflow-y-auto h-full py-3 px-2 relative overflow-hidden ${
+      className={` scroll-barr w-full overflow-y-auto h-full py-1 px-2 relative overflow-hidden ${
         !mouseEnter ? "scroll-bar-thumb" : ""
       }`}
       onMouseEnter={() => setMouseEnter(true)}
       onMouseLeave={() => setMouseEnter(false)}
     >
       <div
-        className={`flex-auto w-1/2  items-center flex gap-2 z-10 bg-transparent backdrop-blur-md top-4 h-max py-4 px-2 shadow-lg fixed justify-between`}
+        className={`flex-auto w-full  items-center flex gap-2 z-10 bg-transparent backdrop-blur-md top-4  py-3 px-0 shadow-lg justify-between`}
       >
-        <div className="w-1/2  flex gap-0 items-center">
+        <div className="w-1/2 flex gap-0 items-center">
           <Icon />
           <div className=" flex-none w-full h-12 flex bg-[#333] rounded-full overflow-hidden px-5">
             <button className="text-white">
@@ -69,7 +69,7 @@ function SearchPage() {
         </div>
         <Profile />
       </div>
-      <div className="mt-16 w-full h-full text-start">
+      <div className="mt-2 w-full h-full text-start">
         <h1 className="text-xl my-3 text-white font-semibold">
           Recent Searches
         </h1>

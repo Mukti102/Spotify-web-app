@@ -3,7 +3,7 @@ import { useState } from "react";
 import { LuSearch } from "react-icons/lu";
 import { RiListCheck } from "react-icons/ri";
 import PlayIcon from "../../Atoms/icon/PlayIcon";
-function PlayButton() {
+function PlayButton({ inputSearch, setInputSearch, inputChange }) {
   const [isSearch, setIsSearch] = useState(false);
   return (
     <div className="flex justify-between items-center">
@@ -22,6 +22,8 @@ function PlayButton() {
               />
               <input
                 type="text"
+                value={inputSearch}
+                onChange={inputChange}
                 placeholder="Search Your playlist...."
                 className="bg-transparent outline-none placeholder:font-normal font-normal w-full h-full text-[12px]"
               />

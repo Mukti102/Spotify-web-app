@@ -21,7 +21,6 @@ function SongDetail() {
   const hide = () => {
     setHidden(!hidden);
   };
-  console.log(tracks);
   return (
     <div
       className={`flex-auto w-[30%] h-full ${hidden ? "hidden" : ""}`}

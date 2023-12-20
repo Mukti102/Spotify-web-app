@@ -1,4 +1,5 @@
 import React from "react";
+import HandleName from "../../Functions/HandleName";
 function Player({ cardTarget }) {
   return (
     <div className="w-[30%] items-center pl-2 flex gap-2">
@@ -14,7 +15,9 @@ function Player({ cardTarget }) {
         />
       </div>
       <div className="text-start">
-        <h1 className="text-white font-semibold text-sm">{cardTarget.name}</h1>
+        <h1 className="text-white font-semibold text-sm">
+          {HandleName(cardTarget.name)}
+        </h1>
         <h2 className="text-[12px] font-medium text-[#ccc] ">
           {cardTarget.artists[0]}
         </h2>
