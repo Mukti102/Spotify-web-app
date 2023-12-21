@@ -66,9 +66,7 @@ function SongControl({ audioRef, play, handleInputChange }) {
         <div className="w-5 h-5 flex justify-center items-center">
           <h2 className="text-[11px] text-[#dddd] font-light">
             0:
-            {(audioRef.current.duration - audioRef.current.currentTime).toFixed(
-              "."
-            )}
+            {audioRef.current.duration.toFixed(".")}
           </h2>
         </div>
       </div>

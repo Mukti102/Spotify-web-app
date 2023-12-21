@@ -4,7 +4,7 @@ import HeaderListSong from "../Lists/ListArboardSong";
 import CardPlaylist from "../../Atoms/Card/CardPlaylist";
 import CardLoad from "../../Atoms/Card/skeleton/CardLoad";
 import useAppStore from "../../zustand/StoreApp";
-function ArboardListSong({ Loading }) {
+function ArboardListSong({ Loading, tracks }) {
   const playlistsItem = useAppStore((state) => state.track);
   const [inputSearch, setInputSearch] = useState("");
   const inputChange = (e) => {
@@ -13,11 +13,11 @@ function ArboardListSong({ Loading }) {
   const playlists = playlistsItem?.filter((item) =>
     item.name.toLowerCase().includes(inputSearch.toLowerCase())
   );
-  console.log(playlists);
   return (
     <div className="w-full text-[#ccc] mt-10 bg-black bg-opacity-10 min-h-screen px-6 pt-8">
       {/* Play button playlist */}
       <PlayButton
+        tracks={tracks}
         inputSearch={inputSearch}
         setInputSearch={setInputSearch}
         inputChange={inputChange}

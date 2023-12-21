@@ -3,11 +3,16 @@ import { useState } from "react";
 import { LuSearch } from "react-icons/lu";
 import { RiListCheck } from "react-icons/ri";
 import PlayIcon from "../../Atoms/icon/PlayIcon";
-function PlayButton({ inputSearch, setInputSearch, inputChange }) {
+function PlayButton({ inputSearch, setInputSearch, inputChange, tracks }) {
   const [isSearch, setIsSearch] = useState(false);
   return (
     <div className="flex justify-between items-center">
-      <PlayIcon width={"50px"} height={"50px"} fontSize={"2xl"} />
+      <PlayIcon
+        width={"50px"}
+        height={"50px"}
+        fontSize={"2xl"}
+        tracks={tracks}
+      />
       <div className=" flex gap-2 items-center ">
         <div
           className={`target cursor-pointer ${

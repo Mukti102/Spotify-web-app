@@ -8,7 +8,6 @@ import time from "../../Functions/getCurrentTime";
 function Beranda() {
   const playlists = useAppStore((state) => state.playlists);
   const getTarget = useAppStore((state) => state.getCardTarget);
-  const [hover, setHover] = useState(false);
   const handleClick = (item) => {
     console.log(item);
   };
@@ -39,8 +38,8 @@ function Beranda() {
                   <h1>{item.name}</h1>
                 </div>
                 <div
-                  onClick={() => handleClick(item)}
-                  className={`w-9 h-9 shadow-xl absolute right-3 rounded-full bg-green-500 text-black hidden group-hover:flex justify-center items-center text-lg`}
+                  onClick={() => alert("ok")}
+                  className={`z-50 w-9 h-9 shadow-xl absolute right-3 rounded-full bg-green-500 text-black hidden group-hover:flex justify-center items-center text-lg`}
                 >
                   <IoPlaySharp />
                 </div>

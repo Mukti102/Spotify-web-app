@@ -9,12 +9,11 @@ function CardPlaylist({ item, index }) {
   const [cardHover, setCardHover] = useState(false);
   const cardTarget = useAppStore((state) => state.cardTarget);
   const handleClick = useAppStore((state) => state.getCardTarget);
-  const [cardActive, setCardActive] = useState("");
+  const [cardActive, setCardActive] = useState(false);
   const playing = useAppStore((state) => state.playing);
   const setPlaying = useAppStore((state) => state.setPlaying);
-
   useEffect(() => {
-    const active = cardTarget?.id == item.id;
+    const active = cardTarget?.id === item.id;
     setCardActive(active);
   }, [cardTarget]);
 
@@ -100,7 +99,7 @@ function CardPlaylist({ item, index }) {
         <div className="text-[13px] text-[#bbb] font-medium group-hover:text-white text-start w-1/3">
           {HandleName(item.album)}
         </div>
-        <div className="w-10 flex justify-start">
+        <div className="w-10 flex justify-start text-white">
           {MilisecondToMinute(item.duration)}
         </div>
       </div>

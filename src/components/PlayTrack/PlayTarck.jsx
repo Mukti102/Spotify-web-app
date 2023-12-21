@@ -26,6 +26,7 @@ function PlayTarck() {
     return () => {
       // Clean up event listener when the component is unmounted
       audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
+      audioRef.current.removeEventListener("ended", handleEnded);
     };
   }, [cardTarget]);
 
@@ -57,7 +58,17 @@ function PlayTarck() {
     }
   };
 
+  if (!playing) {
+    audioRef.current.play();
+  } else {
+    audioRef.current.pause();
+  }
+
   // handle ketika lagu sudah selesai
+  const handleEnded = () => {
+    play(false);
+  };
+
   audioRef.current.addEventListener("ended", () => {
     play(false);
   });
