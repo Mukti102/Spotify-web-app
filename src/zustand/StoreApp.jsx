@@ -1,12 +1,11 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import axios from "axios";
-import { useRef } from "react";
 const useAppStore = create(
   persist(
     (set) => ({
       token: window.location.hash.substring(1).split("&")[0].split("=")[1],
-      playlists: [],
+      playlistsFeatured: null,
       playlist: [],
       loading: false,
       cardTarget: null,
@@ -14,6 +13,7 @@ const useAppStore = create(
       tracks: null,
       aboutArtist: null,
       searchResult: null,
+      defaultUrl: "https://api.spotify.com",
       getPlaylist: (url) => {
         return new Promise((resolve, reject) => {
           axios
@@ -24,7 +24,8 @@ const useAppStore = create(
             })
             .then((res) => {
               set({ playlists: res.data.items });
-              resolve(true);
+              set({ playlistsFeatured: res.data.items });
+              resolve(res);
             })
             .catch((err) => {
               reject("fetch playlists", err);

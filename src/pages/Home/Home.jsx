@@ -8,7 +8,6 @@ import PlayTarck from "../../components/PlayTrack/PlayTarck";
 
 function Home() {
   const cardTarget = useAppStore((state) => state.cardTarget);
-
   return (
     <div className="h-screen">
       <div className="flex h-[85%] pt-3 px-1 gap-2">

@@ -5,20 +5,17 @@ import useAppStore from "../../zustand/StoreApp";
 import { NavLink } from "react-router-dom";
 import { IoPlaySharp } from "react-icons/io5";
 import time from "../../Functions/getCurrentTime";
+import FeaturePlaylist from "../FeaturePalylist/FeaturePlaylist";
 function Beranda() {
   const playlists = useAppStore((state) => state.playlists);
-  const getTarget = useAppStore((state) => state.getCardTarget);
-  const handleClick = (item) => {
-    console.log(item);
-  };
   return (
-    <>
+    <div className="w-full overflow-y-auto h-full">
       <div className="items-center pr-5 w-full  flex justify-between">
         <Icon />
         <Profile />
       </div>
       <div className="w-full text-start px-5">
-        <h1 className="text-white text-2xl  font-bold">{time()}</h1>
+        <h1 className="text-white text-2xl font-bold">{time()}</h1>
         <div className="w-full flex items-center gap-3 flex-wrap mt-3">
           {playlists?.map((item, index) => {
             return (
@@ -38,7 +35,6 @@ function Beranda() {
                   <h1>{item.name}</h1>
                 </div>
                 <div
-                  onClick={() => alert("ok")}
                   className={`z-50 w-9 h-9 shadow-xl absolute right-3 rounded-full bg-green-500 text-black hidden group-hover:flex justify-center items-center text-lg`}
                 >
                   <IoPlaySharp />
@@ -49,7 +45,8 @@ function Beranda() {
           })}
         </div>
       </div>
-    </>
+      <FeaturePlaylist name={"Featured Playlist"} />
+    </div>
   );
 }
 

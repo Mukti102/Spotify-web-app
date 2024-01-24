@@ -2,7 +2,7 @@ import React from "react";
 import useAppStore from "../../zustand/StoreApp";
 import MilisecondToMinute from "../../Functions/MilisecondToMinute";
 import "../../components/Sidebar/Sidebar.css";
-import HandleName from "../../Functions/HandleName";
+import logo from "../../assets/logo.png";
 function Thumbnail() {
   const tracks = useAppStore((state) => state.track);
   const playlist = useAppStore((state) => state.playlist);
@@ -39,12 +39,16 @@ function Thumbnail() {
           <p className="text-[#bbb] font-normal text-[12px] text-start w-[75%]">
             {playlist.description}
           </p>
-          <h2 className="text-start text-white text-sm font-medium">
-            ABDUL MUKTI •{" "}
+          <h2 className="text-start text-white flex items-center text-sm font-medium">
+            <span className="flex items-center mr-1">
+              <img src={logo} alt="logo" className="w-10" />
+              Spotify •{" "}
+            </span>
             <span className="text-sm">
-              {tracks == null ? "0" : tracks?.length} songs,{" "}
-              {MilisecondToMinute(entireMinutes).split(":")[0]} min,{" "}
-              {MilisecondToMinute(entireMinutes).split(":")[1].substring(1)} sec
+              {tracks == null ? "0" : tracks?.length} Lagu, sekitar{" "}
+              {MilisecondToMinute(entireMinutes).split(":")[0]} menit,{" "}
+              {MilisecondToMinute(entireMinutes).split(":")[1].substring(1)}{" "}
+              detik
             </span>
           </h2>
         </div>

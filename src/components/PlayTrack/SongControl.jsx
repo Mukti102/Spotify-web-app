@@ -54,7 +54,7 @@ function SongControl({ audioRef, play, handleInputChange }) {
         </div>
         <input
           min={0}
-          max={audioRef.current.duration}
+          max={30}
           style={myStyle}
           className="track-play"
           value={audioRef.current.currentTime}

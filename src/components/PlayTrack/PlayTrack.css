@@ -17,6 +17,7 @@
     background: white;
     border-radius: 50%;
     cursor: pointer;
+    /* display: none; */
   }
   .volume{
     width: 30%;

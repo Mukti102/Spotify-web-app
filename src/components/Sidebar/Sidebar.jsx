@@ -16,15 +16,14 @@ function Sidebar() {
   const Loading = useAppStore((state) => state.loading);
   const token = useAppStore((state) => state.token);
   const setLoading = useAppStore((state) => state.setLoading);
+  const defaultUrl = useAppStore((state) => state.defaultUrl);
   const cardTarget = useAppStore((state) => state.cardTarget);
   const [mouseEnter, setMouseEnter] = useState(false);
   useEffect(() => {
     const getDataPlayLists = async () => {
       setLoading(true);
       try {
-        const res = await getPlaylists(
-          "https://api.spotify.com/v1/me/playlists"
-        );
+        const res = await getPlaylists(`${defaultUrl}/v1/me/playlists`);
         if (res) {
           setLoading(false);
         }
@@ -42,8 +41,8 @@ function Sidebar() {
   return (
     <div
       className={`${
-        cardTarget ? " flex-auto" : "flex-initial"
-      } w-[25%] pl-2 pr-1  flex-col`}
+        cardTarget ? " sm:flex-auto" : "sm:flex-initial"
+      } hidden sm:flex w-[25%] pl-2 pr-1  flex-col`}
     >
       <div className="h-[18%]  flex flex-col gap-2 justify-center py-0 px-3 mb-2 rounded-lg w-full bg-[#111]">
         <NavLink

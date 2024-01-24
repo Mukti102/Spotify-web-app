@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import useAppStore from "../../zustand/StoreApp";
 function Login() {
   const navigate = useNavigate();
   const handleClick = () => {
     const clientId = "09f45ad923af4e06b03c5387bbd28783";
-    const redirectUrl = "http://localhost:5173/";
+    const redirectUrl = "http://localhost:5173";
     const apiUrl = "https://accounts.spotify.com/authorize";
     const scopes = [
       "user-read-email",
@@ -26,8 +26,7 @@ function Login() {
   const token = useAppStore((state) => state.token);
   useEffect(() => {
     if (token) {
-      // navigate(`spotify/playlist/7i5tGT8NEDeBZcMXd20YA4`);
-      navigate(`spotify/playlist`);
+      navigate(`spotify/playlist/Home`);
     } else {
       navigate("/");
     }

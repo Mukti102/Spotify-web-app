@@ -1,21 +1,18 @@
-import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { LuSearch } from "react-icons/lu";
 import useAppStore from "../../zustand/StoreApp";
 import SearchCard from "../../Atoms/Card/SearchCard";
 import Icon from "../../Atoms/icon/Icon";
 import "../SongDetail/SongDetail.css";
 import SearcCardLoad from "../../Atoms/Card/skeleton/SearcCardLoad";
-import { useNavigate } from "react-router";
 import Profile from "../../Atoms/icon/Profile";
 function SearchPage() {
-  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
   const getSearch = useAppStore((state) => state.getSearch);
   const searchResult = useAppStore((state) => state.searchResult);
   const [mouseEnter, setMouseEnter] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const CardTarget = useAppStore((state) => state.CardTarget);
+  const defaultUrl = useAppStore((state) => state.defaultUrl);
   const inputChange = useCallback((e) => {
     setInputValue(e.target.value);
   });
@@ -26,7 +23,7 @@ function SearchPage() {
     const fetchSearch = async () => {
       try {
         const res = await getSearch(
-          `https://api.spotify.com/v1/search?q=${inputValue}&type=track`
+          `${defaultUrl}/v1/search?q=${inputValue}&type=track`
         );
         if (res) {
           setIsLoading(false);

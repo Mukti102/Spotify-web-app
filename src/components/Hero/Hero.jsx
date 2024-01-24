@@ -5,19 +5,18 @@ import useAppStore from "../../zustand/StoreApp";
 
 function Hero() {
   const params = useParams();
-  const playlists = useAppStore((state) => state.playlists);
   const getPlaylistsItem = useAppStore((state) => state.getItemPlaylist);
-  const playlist = useAppStore((state) => state.playlist);
   const cardTarget = useAppStore((state) => state.cardTarget);
   const [isLoading, setIsLoading] = useState(false);
+  const defaultUrl = useAppStore((state) => state.defaultUrl);
   const id = params.id;
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
         const res = await getPlaylistsItem(
-          `https://api.spotify.com/v1/playlists/${id}`,
-          `https://api.spotify.com/v1/playlists/${id}/tracks`
+          `${defaultUrl}/v1/playlists/${id}`,
+          `${defaultUrl}/v1/playlists/${id}/tracks`
         );
         if (res) {
           setIsLoading(false);

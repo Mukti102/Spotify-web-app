@@ -9,7 +9,6 @@ import HandleName from "../../Functions/HandleName";
 function SongDetail() {
   const [mouseEnter, setMouseEnter] = useState(false);
   const [isLike, setIslike] = useState(false);
-  const playslistsItem = useAppStore((state) => state.playlistsItem);
   const tracks = useAppStore((state) => state.cardTarget);
   const playlist = useAppStore((state) => state.playlist);
   const getArtist = useAppStore((state) => state.getArtist);

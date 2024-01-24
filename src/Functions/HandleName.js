@@ -1,9 +1,9 @@
 import React from 'react'
 
-function HandleName(name) {
+function HandleName(name,length = 15) {
     const names = name;
-    if (names.length > 15) {
-      return `${names.slice(0, 14)}...`;
+    if (names.length > length) {
+      return `${names.slice(0, length)}...`;
     } else {
       return names;
     }
